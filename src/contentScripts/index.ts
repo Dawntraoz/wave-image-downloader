@@ -3,6 +3,7 @@ import { onMessage } from 'webext-bridge/content-script'
 import { createApp } from 'vue'
 import App from './views/App.vue'
 import { setupApp } from '~/logic/common-setup'
+import { fetchImages } from '~/composables/useImages';
 
 // Firefox `browser.tabs.executeScript()` requires scripts return a primitive value
 (() => {
@@ -11,6 +12,12 @@ import { setupApp } from '~/logic/common-setup'
   // communication example: send previous tab title from background page
   onMessage('tab-prev', ({ data }) => {
     console.log(`[vitesse-webext] Navigate from page "${data.title}"`)
+  })
+
+  // Listen for messages from the PopUp
+  onMessage('get-images', async () => {
+    // Respond back to the PopUp
+    return fetchImages().value
   })
 
   // mount component to context window
