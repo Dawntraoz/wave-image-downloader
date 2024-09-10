@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { sendMessage } from 'webext-bridge/popup'
-import type { Image } from '~/composables/useImages'
+import { type Image, downloadImages } from '~/composables/useImages'
 import { userName } from '~/logic/storage'
 
 const images = ref<Image[]>([])
@@ -90,7 +90,7 @@ function handleImageSelection() {
       </section>
     </div>
     <AppFooter>
-      <button :disabled="imagesSelected.length <= 0">
+      <button :disabled="imagesSelected.length <= 0" @click="downloadImages(imagesSelected)">
         Download
       </button>
     </AppFooter>
