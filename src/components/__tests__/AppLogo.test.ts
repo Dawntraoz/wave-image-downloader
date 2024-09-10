@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Logo from '../Logo.vue'
+import AppLogo from '../AppLogo.vue'
 
-describe('logo component', () => {
+describe('app logo component', () => {
   it('should render', () => {
-    const wrapper = mount(Logo)
+    const wrapper = mount(AppLogo)
 
     expect(wrapper.html()).toBeTruthy()
   })

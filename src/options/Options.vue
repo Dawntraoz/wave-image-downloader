@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import logo from '~/assets/logo.svg'
 import { storageDemo } from '~/logic/storage'
 </script>
 
 <template>
-  <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
-    <img :src="logo" class="icon-btn mx-2 text-2xl" alt="extension icon">
-    <div>Options</div>
-    <SharedSubtitle />
+  <main class="px-4 py-8 text-center text-grey-darker text-sm flex flex-col items-center gap-4 min-h-screen">
+    <AppLogo />
+    <h1 class="text-xl">
+      Options
+    </h1>
 
-    <input v-model="storageDemo" class="border border-gray-400 rounded px-2 py-1 mt-2">
+    <form class="flex flex-col items-start w-full max-w-xl gap-4 flex-1">
+      <div class="w-full flex flex-col items-start gap-3 pb-2">
+        <label class="font-medium text-sm text-black">Storage demo</label>
+        <input id="storage-demo" v-model="storageDemo" type="text">
+      </div>
+    </form>
 
-    <div class="mt-4">
-      Powered by Vite <pixelarticons-zap class="align-middle inline-block" />
-    </div>
+    <AppFooter />
   </main>
 </template>

@@ -1,20 +1,39 @@
 html,
 body,
 #app {
-  margin: 0;
-  padding: 0;
+  @apply m-0 p-0;
 }
 
-.btn {
-  @apply px-4 py-1 rounded inline-block
-    bg-teal-600 text-white cursor-pointer
-    hover:bg-teal-700
-    disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold text-black;
 }
 
-.icon-btn {
-  @apply inline-block cursor-pointer select-none
-    opacity-75 transition duration-200 ease-in-out
-    hover:opacity-100 hover:text-teal-600;
-  font-size: 0.9em;
+.main-wrapper {
+  @apply bg-white w-[340px] h-[600px] text-grey-darker border border-grey-light text-sm;
+  contain: paint;
+}
+
+button:not(.appearance-none) {
+  @apply px-6 py-2 w-full border border-primary-dark bg-primary text-white capitalize rounded-md cursor-pointer disabled:cursor-not-allowed disabled:bg-grey-lighter disabled:border-grey-light disabled:text-grey-darker;
+
+  &:not([disabled]) {
+    @apply hover:bg-primary-dark;
+  }
+
+  &.secondary {
+    @apply bg-white border-grey-light text-black hover:bg-grey-lighter;
+  }
+}
+
+input[type="text"] {
+  @apply appearance-none w-full bg-grey-light text-grey-dark rounded-md px-4 py-2 border-2 border-grey-light accent-primary hover:border-primary focus:outline-none focus:border-primary;
+}
+
+input[type="checkbox"] {
+  @apply appearance-none flex items-center justify-center p-px w-4 h-4 border-[1.5px] border-primary-dark bg-white rounded-md checked:bg-primary checked:after:content-[''] checked:after:w-full checked:after:h-full checked:after:bg-cover checked:after:bg-[url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1jaGVjayIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwb2x5bGluZSBwb2ludHM9IjIwIDYgOSAxNyA0IDEyIi8+PC9zdmc+')];
 }
